@@ -18,15 +18,18 @@ Tech Stack
   
 Project Structure
 orm_project/
-orm.py        # Core ORM logic
-demo.py       # Script demonstrating ORM usage
-README.md     # Project documentation
+  1.orm.py    
+  # Core ORM logic
+  2.demo.py 
+  # Script demonstrating ORM usage
+  3.README.md 
+  # Project documentation
 
 
  Setup Instructions
 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/orm_project.git
+git clone [https://github.com/yourusername/orm_project.git]
 cd orm_project
 ```
 2. Install Required Python Package
