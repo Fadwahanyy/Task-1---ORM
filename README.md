@@ -9,18 +9,18 @@ To create a l Python ORM engine that supports:
 - Constraints (`primary_key`, `nullable`)
 - Safe CRUD operations (Create, Read, Update, Delete)
 
-- 
+  
 Tech Stack
 - Python 3.10+
 - PostgreSQL
 - psycopg2 (psycopg2-binary)
 
-- 
+  
 Project Structure
 orm_project/
-├── orm.py        # Core ORM logic
-├── demo.py       # Script demonstrating ORM usage
-├── README.md     # Project documentation
+orm.py        # Core ORM logic
+demo.py       # Script demonstrating ORM usage
+README.md     # Project documentation
 
 
  Setup Instructions
