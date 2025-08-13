@@ -1,17 +1,9 @@
 import psycopg2
 from psycopg2.extras import RealDictCursor
+import os
+from dotenv import load_dotenv
+from field import IntegerField, StringField
 
-class IntegerField:
-    def __init__(self, primary_key=False, nullable=True):
-        self.primary_key = primary_key
-        self.nullable = nullable
-        self.column_type = 'SERIAL' if primary_key else 'INTEGER'
-
-class StringField:
-    def __init__(self, length=255, primary_key=False, nullable=True):
-        self.column_type = f'VARCHAR({length})'
-        self.primary_key = primary_key
-        self.nullable = nullable
 
 class ModelMeta(type):
     def __new__(cls, name, bases, attrs):
@@ -22,18 +14,19 @@ class ModelMeta(type):
         attrs['__table__'] = name.lower()
         return super().__new__(cls, name, bases, attrs)
 
+load_dotenv()
+
 class Model(metaclass=ModelMeta):
     @classmethod
     def connect(cls):
         return psycopg2.connect(
-            dbname='orm_demo',
-            user='postgres',
-            password='Fadwa@2511',
-            host='localhost',
-            port='5432',
+            dbname=os.getenv('DB_NAME'),
+            user=os.getenv('DB_USER'),
+            password=os.getenv('DB_PASSWORD'),
+            host=os.getenv('DB_HOST'),
+            port=os.getenv('DB_PORT'),
             cursor_factory=RealDictCursor
         )
-
     @classmethod
     def create_table(cls):
         columns = []

@@ -6,7 +6,7 @@ class User(Model):
     email = StringField()
 
 def main():
-    # Drop table just once
+   
     with User.connect() as conn, conn.cursor() as cur:
         cur.execute('DROP TABLE IF EXISTS "user";')
         conn.commit()
